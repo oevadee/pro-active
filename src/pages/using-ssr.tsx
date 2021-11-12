@@ -1,10 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import { Layout } from "../components/layout"
+import { Seo } from "../components/seo"
 
-const UsingSSR = ({ serverData }) => {
+export const UsingSSR = ({ serverData }) => {
   return (
     <Layout>
       <Seo title="Using SSR" />
@@ -26,8 +26,6 @@ const UsingSSR = ({ serverData }) => {
     </Layout>
   )
 }
-
-export default UsingSSR
 
 export async function getServerData() {
   try {
