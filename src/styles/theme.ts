@@ -7,5 +7,17 @@ export const theme = {
         starCommandBlue: "#0E79B2",
         scroll: "#CDCDCD",
     },
+    font: {
+        size: {
+            normal: "14px",
+            heading: "48px",
+        },
+        weight: {
+            light: "300",
+            normal: "400",
+            semiBold: "600",
+            bold: "700",
+        },
+    },
     transition: "ease-out 0.2s",
 };

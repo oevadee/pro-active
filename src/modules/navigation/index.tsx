@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { navItems } from "./navItems";
+import { Button } from "../../components/button";
 
 const SNav = styled.nav`
     width: 100%;
@@ -34,8 +35,7 @@ const SList = styled.ul`
 `;
 
 const SLink = styled(Link)`
-    height: 60px;
-    width: 160px;
+    width: 150px;
     display: grid;
     grid-area: 1/1;
 `;
@@ -69,6 +69,7 @@ export const Navigation = () => {
                 {navItems.map(({ path, label }) => (
                     <li>{label}</li>
                 ))}
+                <Button>Test the app</Button>
             </SList>
         </SNav>
     );

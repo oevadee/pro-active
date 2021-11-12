@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Lato', sans-serif;
     box-sizing: border-box;
+    letter-spacing: 0;
   }
   html {
     -ms-text-size-adjust: 100%;
