@@ -1,8 +1,8 @@
-import { graphql, useStaticQuery } from "gatsby";
 import React, { ReactNode } from "react";
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { Navigation } from "../modules/navigation";
-import "./layout.css";
+import { theme } from "../styles/theme";
+import { GlobalStyle } from "./GlobalStyle";
 
 const SWrapper = styled.div`
     min-height: 100vh;
@@ -18,20 +18,13 @@ interface Props {
 }
 
 export const Layout = ({ children }: Props) => {
-    const data = useStaticQuery(graphql`
-        query SiteTitleQuery {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `);
-
     return (
         <SWrapper>
-            <Navigation siteTitle={data.site.siteMetadata?.title || `Title`} />
-            {children}
+            <ThemeProvider theme={theme}>
+                <GlobalStyle />
+                <Navigation />
+                {children}
+            </ThemeProvider>
         </SWrapper>
     );
 };

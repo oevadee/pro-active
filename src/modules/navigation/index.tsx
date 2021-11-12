@@ -1,21 +1,16 @@
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { navItems } from "./navItems";
 
 const SNav = styled.nav`
     width: 100%;
-    border: solid 1px red;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 48px;
-`;
-
-const SHeading = styled.h1`
-    margin: 0;
 `;
 
 const SList = styled.ul`
@@ -27,27 +22,49 @@ const SList = styled.ul`
 
     > li {
         margin: 0 24px;
-        font-size: 16px;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: ${({ theme }) => theme.transition};
+
+        &:hover {
+            color: ${({ theme }) => theme.colors.secondary};
+        }
     }
 `;
 
+const SLink = styled(Link)`
+    height: 60px;
+    width: 160px;
+    display: grid;
+    grid-area: 1/1;
+`;
+
 export const Navigation = () => {
-    // const data = useStaticQuery(graphql);
+    const { file } = useStaticQuery(graphql`
+        query LogoQuery {
+            file(relativePath: { eq: "logo.png" }) {
+                childImageSharp {
+                    gatsbyImageData
+                }
+            }
+        }
+    `);
+
+    const logo = getImage(file);
 
     return (
         <SNav>
-            <SHeading style={{ margin: 0 }}>
-                <Link to="/">
-                    <StaticImage
-                        src="../../images/logo.png"
-                        alt=""
-                        layout="fullWidth"
-                        style={{
-                            width: 150,
-                        }}
-                    />
-                </Link>
-            </SHeading>
+            <SLink to="/">
+                <GatsbyImage
+                    style={{
+                        gridArea: "1/1",
+                    }}
+                    objectFit="contain"
+                    alt=""
+                    image={logo}
+                />
+            </SLink>
             <SList>
                 {navItems.map(({ path, label }) => (
                     <li>{label}</li>
