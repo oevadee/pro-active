@@ -9,10 +9,9 @@ const SSection = styled.section`
 
     > h1 {
         font-size: ${({ theme }) => theme.font.size.heading};
+        color: ${({ theme }) => theme.colors.smokyBlack};
     }
 `;
-
-const SHeading = styled.h1``;
 
 export const IntroSection = () => {
     return (
