@@ -6,8 +6,14 @@ import { GlobalStyle } from "./GlobalStyle";
 
 const SWrapper = styled.div`
     min-height: 100vh;
+    width: calc(100vw - 8px);
+    display: grid;
+    place-items: center;
+`;
+
+const SAppWrapper = styled.div`
     width: 100%;
-    max-width: 1320px;
+    max-width: 1366px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,9 +27,11 @@ export const Layout = ({ children }: Props) => {
     return (
         <SWrapper>
             <ThemeProvider theme={theme}>
-                <GlobalStyle />
-                <Navigation />
-                {children}
+                <SAppWrapper>
+                    <GlobalStyle />
+                    <Navigation />
+                    {children}
+                </SAppWrapper>
             </ThemeProvider>
         </SWrapper>
     );
