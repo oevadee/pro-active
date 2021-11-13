@@ -9,6 +9,13 @@ module.exports = {
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-image`,
         {
+            resolve: "gatsby-plugin-anchor-links",
+            options: {
+                offset: -100,
+                duration: 1000,
+            },
+        },
+        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `images`,

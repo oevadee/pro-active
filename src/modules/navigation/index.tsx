@@ -1,9 +1,10 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { navItems } from "./navItems";
 import { Button } from "../../components/button";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const SNav = styled.nav`
     width: 100%;
@@ -20,24 +21,29 @@ const SList = styled.ul`
     margin: 0;
     list-style: none;
     cursor: pointer;
+`;
+
+const SLogoLink = styled(AnchorLink)`
+    width: 150px;
+    display: grid;
+    grid-area: 1/1;
+`;
+
+const SListItem = styled(AnchorLink)`
+    margin: 0 24px;
+    text-decoration: none;
 
     > li {
-        margin: 0 24px;
         font-size: 14px;
         text-transform: uppercase;
         font-weight: bold;
+        color: ${({ theme }) => theme.colors.smokyBlack};
         transition: ${({ theme }) => theme.transition};
 
         &:hover {
             color: ${({ theme }) => theme.colors.secondary};
         }
     }
-`;
-
-const SLink = styled(Link)`
-    width: 150px;
-    display: grid;
-    grid-area: 1/1;
 `;
 
 export const Navigation = () => {
@@ -55,7 +61,7 @@ export const Navigation = () => {
 
     return (
         <SNav>
-            <SLink to="/">
+            <SLogoLink to="/">
                 <GatsbyImage
                     style={{
                         gridArea: "1/1",
@@ -64,10 +70,12 @@ export const Navigation = () => {
                     alt=""
                     image={logo}
                 />
-            </SLink>
+            </SLogoLink>
             <SList>
                 {navItems.map(({ path, label }) => (
-                    <li>{label}</li>
+                    <SListItem to={`/#${path}`}>
+                        <li>{label}</li>
+                    </SListItem>
                 ))}
                 <Button>Test the app</Button>
             </SList>
