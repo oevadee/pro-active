@@ -1,11 +1,11 @@
 export const theme = {
     colors: {
-        primary: "#A76BCF",
+        primary: "#A76BCF", // Used in buttons
         secondary: "#F39237",
-        white: "#fff",
-        smokyBlack: "#1C110A",
+        white: "#fff", // Used as background
+        smokyBlack: "#1C110A", // Used as text
         starCommandBlue: "#0E79B2",
-        scroll: "#CDCDCD",
+        scroll: "#CDCDCD", // Used in scroll
     },
     font: {
         size: {
