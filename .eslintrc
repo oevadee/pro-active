@@ -7,10 +7,16 @@
             "jsx": true
         }
     },
+    "plugins": ["@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
     "rules": {
         "no-unused-vars": "error",
         "no-extra-semi": "error",
+        "no-empty-interface": "off",
         "no-console": "warn",
-        "no-empty-interface": "off"
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-extra-semi": "error",
+        "@typescript-eslint/require-await": "error",
+        "@typescript-eslint/no-empty-interface": "off"
     }
 }

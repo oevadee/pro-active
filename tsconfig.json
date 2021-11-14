@@ -1,4 +1,6 @@
 {
+    "extends": "./tsconfig.paths.json",
+    "include": ["src"],
     "compilerOptions": {
         "module": "esnext",
         "target": "ES2015",
@@ -17,7 +19,5 @@
         "jsx": "react-jsx",
         "suppressImplicitAnyIndexErrors": true,
         "types": ["node", "jest"]
-    },
-    "include": ["src"]
-    // "files": ["svg.d.ts"]
+    }
 }
