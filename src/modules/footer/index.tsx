@@ -3,14 +3,17 @@ import styled from "styled-components";
 
 const SWrapper = styled.footer`
     width: 100%;
-    height: 100px;
-    border solid 1px red;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 12px;
 `;
 
 export const Footer = () => {
     return (
         <SWrapper>
-            <h1>test</h1>
+            <p>@ 2021 Pro active</p>
         </SWrapper>
     );
 };
